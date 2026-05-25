@@ -1,26 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AmbientBackground } from "@/components/landing/Background";
+import { Nav } from "@/components/landing/Nav";
+import { Hero } from "@/components/landing/Hero";
+import {
+  Logos,
+  Features,
+  HowItWorks,
+  NativeShowcase,
+  Testimonials,
+  CTA,
+  Footer,
+} from "@/components/landing/Sections";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Indexer — Optimize for AI Search" },
+      {
+        name: "description",
+        content:
+          "Indexer analyzes your codebase and generates AI-ready optimizations directly inside Antigravity IDE. Built for discoverability in ChatGPT, Gemini, and Perplexity.",
+      },
+      { property: "og:title", content: "Indexer — Optimize for AI Search" },
+      {
+        property: "og:description",
+        content:
+          "AI-ready optimizations for your project, built natively for Antigravity IDE.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="relative min-h-screen overflow-hidden text-foreground">
+      <AmbientBackground />
+      <Nav />
+      <Hero />
+      <Logos />
+      <Features />
+      <HowItWorks />
+      <NativeShowcase />
+      <Testimonials />
+      <CTA />
+      <Footer />
+    </main>
+  );
 }
