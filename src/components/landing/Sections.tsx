@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Search, Target, Sparkles, Code2, CheckCircle2, Download, ExternalLink } from "lucide-react";
 import { IDEMockup } from "./IDEMockup";
 import { Logo } from "./Logo";
+import bannerImg from "./banner.png";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -208,45 +209,53 @@ export function Testimonials() {
 
 export function CTA() {
   return (
-    <section id="install" className="py-24">
+    <section id="install" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-[oklch(0.16_0.025_270)] p-10 md:p-14"
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] border border-white/5 transition-all duration-300 w-full"
         >
-          <div className="absolute -top-40 left-1/2 h-[28rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,oklch(0.6_0.24_285/0.4),transparent_60%)] blur-2xl" />
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-          <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-[1.2fr_1fr]">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-primary">Built for the AI Web</p>
-              <h2 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.05] tracking-tight">
-                Build for the AI Web.{" "}
-                <span className="text-gradient">Be discovered everywhere.</span>
-              </h2>
-              <p className="mt-4 max-w-md text-[14px] leading-relaxed text-muted-foreground">
-                Join thousands of developers who trust Indexer to optimize their projects for the future of search.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-4 md:items-end">
-              <div className="flex items-center gap-3">
-                <Logo className="h-10 w-10" />
-                <div>
-                  <div className="text-[15px] font-semibold">Indexer</div>
-                  <div className="text-[11.5px] text-muted-foreground">Built for Discoverability</div>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a className="inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-5 py-3 text-[14px] font-medium text-white shadow-[0_20px_50px_-20px_oklch(0.66_0.21_280/0.7)]">
-                  <Download className="h-4 w-4" /> Install Extension
-                </a>
-                <a className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-[14px] font-medium text-foreground/90 hover:bg-white/[0.06]">
-                  Open in Antigravity <ExternalLink className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </div>
+          {/* Direct Banner Graphic Image */}
+          <img
+            src={bannerImg}
+            alt="Indexer - Build for the AI Web"
+            className="w-full h-auto block select-none pointer-events-none"
+          />
+
+          {/* Clickable Transparent Hotspots */}
+          <div className="absolute inset-0">
+            {/* Install Extension Hotspot */}
+            <a
+              href="https://github.com/NitroNitish/luminous-plane"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Install Extension"
+              className="absolute cursor-pointer rounded-[6px] md:rounded-xl transition-all hover:bg-white/5"
+              style={{
+                left: "56.7%",
+                width: "14.9%",
+                top: "56%",
+                height: "25%",
+              }}
+            />
+
+            {/* Open in Antigravity Hotspot */}
+            <a
+              href="https://github.com/NitroNitish/luminous-plane"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open in Antigravity"
+              className="absolute cursor-pointer rounded-[6px] md:rounded-xl transition-all hover:bg-white/5"
+              style={{
+                left: "73.2%",
+                width: "16.9%",
+                top: "56%",
+                height: "25%",
+              }}
+            />
           </div>
         </motion.div>
       </div>
