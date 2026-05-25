@@ -509,10 +509,10 @@ export function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-28 relative overflow-hidden">
+    <section id="pricing" className="py-24 relative overflow-hidden">
       {/* Immersive Atmospheric Lighting */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.66_0.21_280/0.12),transparent_65%)] blur-3xl" />
-      <div className="pointer-events-none absolute right-10 top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.62_0.22_278/0.05),transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.66_0.21_280/0.1),transparent_65%)] blur-3xl" />
+      <div className="pointer-events-none absolute right-10 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.62_0.22_278/0.04),transparent_70%)] blur-2xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 z-10 flex flex-col items-center">
         {/* Section Header */}
@@ -524,13 +524,13 @@ export function Pricing() {
         </motion.p>
         <motion.h2
           {...fadeUp}
-          className="mt-4 text-center text-[clamp(2.2rem,3.8vw,3rem)] font-semibold leading-[1.05] tracking-tight"
+          className="mt-4 text-center text-[clamp(2rem,3.2vw,2.5rem)] font-semibold leading-[1.05] tracking-tight"
         >
           Pay Once. Use Forever.
         </motion.h2>
         <motion.p
           {...fadeUp}
-          className="mt-4 text-center text-[14.5px] text-muted-foreground max-w-md"
+          className="mt-3.5 text-center text-[13.5px] text-muted-foreground max-w-sm"
         >
           Get full unlimited lifetime access to Indexer. No subscriptions, no hidden fees.
         </motion.p>
@@ -542,65 +542,65 @@ export function Pricing() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: EASE }}
           whileHover={{ 
-            y: -6,
+            y: -5,
             transition: { duration: 0.25, ease: "easeOut" }
           }}
-          className="group relative mt-16 w-full max-w-[420px] rounded-3xl border border-white/8 bg-white/[0.02] p-8 backdrop-blur-md transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] hover:shadow-[0_40px_80px_-20px_oklch(0.66_0.21_280/0.25)]"
+          className="group relative mt-12 w-full max-w-[365px] rounded-2xl border border-white/8 bg-white/[0.02] p-6 backdrop-blur-md transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] hover:shadow-[0_30px_60px_-15px_oklch(0.66_0.21_280/0.2)]"
         >
           {/* Subtle top edge lighting gradient */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
           {/* Early Adopter Tag */}
           <div className="flex justify-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1 text-[11.5px] font-medium tracking-wide text-primary uppercase select-none">
-              <Sparkles className="h-3 w-3 fill-current animate-pulse" /> Early Adopter Launch Offer
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3 py-0.5 text-[10px] font-medium tracking-wide text-primary uppercase select-none">
+              <Sparkles className="h-2.5 w-2.5 fill-current animate-pulse" /> Early Adopter Launch Offer
             </span>
           </div>
 
           {/* Pricing Details */}
-          <div className="mt-8 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-[20px] text-muted-foreground/60 line-through font-medium">
+          <div className="mt-6 text-center">
+            <div className="flex items-center justify-center gap-2.5">
+              <span className="text-[16px] text-muted-foreground/60 line-through font-medium">
                 ₹499
               </span>
-              <span className="text-[64px] font-semibold tracking-tight text-white leading-none">
+              <span className="text-[50px] font-semibold tracking-tight text-white leading-none">
                 ₹99
               </span>
             </div>
-            <p className="mt-3 text-[14px] font-medium text-foreground/80 tracking-wide">
+            <p className="mt-2.5 text-[13px] font-medium text-foreground/80 tracking-wide">
               "Pay once. Own forever."
             </p>
           </div>
 
           {/* Divider Line */}
-          <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          <div className="my-5.5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
           {/* Feature List */}
-          <ul className="space-y-4">
+          <ul className="space-y-3">
             {featuresList.map((f) => (
-              <li key={f} className="flex items-center gap-3 text-[14px] text-foreground/85">
-                <CheckCircle2 className="h-4.5 w-4.5 text-primary flex-shrink-0" />
+              <li key={f} className="flex items-center gap-2.5 text-[13px] text-foreground/85">
+                <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
                 <span className="font-light tracking-wide">{f}</span>
               </li>
             ))}
           </ul>
 
           {/* CTA Button */}
-          <div className="mt-10">
+          <div className="mt-7">
             <a
               href="https://open-vsx.org/extension/indexer-app/indexer"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group inline-flex w-full items-center justify-center rounded-2xl bg-[image:var(--gradient-primary)] py-4 text-[14.5px] font-semibold text-white shadow-[0_20px_50px_-20px_oklch(0.66_0.21_280/0.8)] transition-all duration-300 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98] glow-primary"
+              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-semibold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary"
             >
               {/* Button light hover glow overlay */}
-              <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               Get Lifetime Access Now
             </a>
           </div>
 
           {/* Guarantee Subtext */}
-          <p className="mt-4 text-center text-[11px] text-muted-foreground/80 tracking-wide font-mono">
+          <p className="mt-3 text-center text-[9.5px] text-muted-foreground/80 tracking-wide font-mono">
             SECURE ONE-TIME PAYMENT
           </p>
         </motion.div>
