@@ -107,7 +107,7 @@ export function IDEMockup() {
             </div>
             <CodeLines />
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
               className="absolute bottom-4 right-4 w-[220px] rounded-xl border border-white/10 bg-[oklch(0.18_0.03_275)]/90 p-3 shadow-[0_20px_50px_-20px_oklch(0_0_0/0.8)] backdrop-blur"

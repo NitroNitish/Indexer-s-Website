@@ -27,7 +27,7 @@ export function Hero() {
     <section className="relative pt-36 pb-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.05fr_1.2fr]">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE }}
           className="relative z-10"
@@ -71,7 +71,7 @@ export function Hero() {
           ref={ref}
           onPointerMove={onMove}
           onPointerLeave={reset}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE, delay: 0.15 }}
           style={{ transform: tilt, transformStyle: "preserve-3d" }}
