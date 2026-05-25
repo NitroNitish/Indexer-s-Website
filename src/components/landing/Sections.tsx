@@ -438,6 +438,7 @@ export function Footer() {
               {[
                 { label: "Features", href: "#features" },
                 { label: "How It Works", href: "#how" },
+                { label: "Privacy Policy", href: "#/privacy" },
                 {
                   label: "Install Extension",
                   href: "https://open-vsx.org/extension/indexer-app/indexer",
