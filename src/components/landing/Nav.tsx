@@ -5,8 +5,6 @@ import { Logo } from "./Logo";
 const links = [
   { label: "Features", href: "#features" },
   { label: "How it works", href: "#how" },
-  { label: "Docs", href: "#docs" },
-  { label: "Pricing", href: "#pricing" },
 ];
 
 export function Nav() {

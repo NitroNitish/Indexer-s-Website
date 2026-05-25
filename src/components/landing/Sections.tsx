@@ -267,33 +267,13 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-16 pb-16">
           {/* Brand Info */}
           <div className="flex flex-col gap-5 md:col-span-2">
-            <a href="#" className="flex items-center gap-2.5 w-fit">
-              <Logo className="h-6 w-6" />
-              <span className="text-[17px] font-semibold tracking-tight text-white">Indexer</span>
+            <a href="#" className="flex items-center gap-3 w-fit">
+              <Logo className="h-8 w-8" />
+              <span className="text-[22px] font-bold tracking-tight text-white">Indexer</span>
             </a>
             <p className="max-w-sm text-[13.5px] leading-relaxed text-muted-foreground">
               Empowering developers to optimize their codebase and content for the age of AI search. Built natively for modern agentic workflows.
             </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a 
-                href="https://github.com/NitroNitish/Indexer-s-Website" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/15 hover:bg-white/[0.05] hover:text-white transition-all text-muted-foreground" 
-                title="GitHub"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/15 hover:bg-white/[0.05] hover:text-white transition-all text-muted-foreground" 
-                title="Twitter"
-              >
-                <Twitter className="h-4 w-4" />
-              </a>
-            </div>
           </div>
 
           {/* Links Column 1 */}
@@ -346,15 +326,13 @@ export function Footer() {
           <div className="flex items-center gap-1">
             <span>© 2026 Indexer. All rights reserved.</span>
           </div>
-          
-          <div className="flex items-center gap-1.5 text-[12px] bg-white/[0.02] border border-white/5 px-3 py-1.5 rounded-full">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse mr-0.5" />
-            <span>Systems fully operational</span>
-          </div>
 
-          <div className="flex items-center gap-1">
-            <span>Built for the AI Web with</span>
-            <Heart className="h-3.5 w-3.5 text-primary fill-primary mx-0.5" />
+          <div className="flex items-center gap-2 text-[9.5px] tracking-[0.25em] font-mono text-muted-foreground/60 uppercase select-none">
+            <span>secure</span>
+            <span className="h-1 w-1 rounded-full bg-primary/40" />
+            <span>optimized</span>
+            <span className="h-1 w-1 rounded-full bg-primary/40" />
+            <span>ai-ready</span>
           </div>
         </div>
       </div>
