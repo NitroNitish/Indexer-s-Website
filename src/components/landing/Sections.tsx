@@ -506,14 +506,6 @@ export function Pricing() {
   const [showDesktopModal, setShowDesktopModal] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const featuresList = [
-    "Lifetime access",
-    "Future updates included",
-    "Full extension access",
-    "AI search optimization",
-    "Antigravity integration",
-  ];
-
   const upiId = "nitronitish@fam";
   const amount = "99";
   const payeeName = "Indexer";
@@ -530,10 +522,8 @@ export function Pricing() {
   const handlePayment = (e: React.MouseEvent) => {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     if (isMobile) {
-      // On mobile, trigger standard deep link to launch user's UPI app directly
       window.location.href = upiUrl;
     } else {
-      // On desktop, show QR code modal instead of doing nothing or causing browser crash
       e.preventDefault();
       setShowDesktopModal(true);
     }
@@ -542,31 +532,10 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-24 relative overflow-hidden">
       {/* Immersive Atmospheric Lighting */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.66_0.21_280/0.1),transparent_65%)] blur-3xl" />
-      <div className="pointer-events-none absolute right-10 top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.62_0.22_278/0.04),transparent_70%)] blur-2xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,oklch(0.66_0.21_280/0.08),transparent_65%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 z-10 flex flex-col items-center">
-        {/* Section Header */}
-        <motion.p
-          {...fadeUp}
-          className="text-[11px] uppercase tracking-[0.18em] text-primary text-center"
-        >
-          Pricing
-        </motion.p>
-        <motion.h2
-          {...fadeUp}
-          className="mt-4 text-center text-[clamp(2rem,3.2vw,2.5rem)] font-semibold leading-[1.05] tracking-tight"
-        >
-          Pay Once. Use Forever.
-        </motion.h2>
-        <motion.p
-          {...fadeUp}
-          className="mt-3.5 text-center text-[13.5px] text-muted-foreground max-w-sm"
-        >
-          Get full unlimited lifetime access to Indexer. No subscriptions, no hidden fees.
-        </motion.p>
-
-        {/* Pricing Card */}
+        {/* Playful Indie Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -576,62 +545,61 @@ export function Pricing() {
             y: -5,
             transition: { duration: 0.25, ease: "easeOut" }
           }}
-          className="group relative mt-12 w-full max-w-[365px] rounded-2xl border border-white/8 bg-white/[0.02] p-6 backdrop-blur-md transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] hover:shadow-[0_30px_60px_-15px_oklch(0.66_0.21_280/0.2)]"
+          className="group relative w-full max-w-[340px] rounded-2xl border border-white/8 bg-white/[0.02] p-6 backdrop-blur-md transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] hover:shadow-[0_30px_60px_-15px_oklch(0.66_0.21_280/0.18)]"
         >
-          {/* Subtle top edge lighting gradient */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          {/* Top border ambient highlight */}
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
 
-          {/* Early Adopter Tag */}
-          <div className="flex justify-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3 py-0.5 text-[10px] font-medium tracking-wide text-primary uppercase select-none">
-              <Sparkles className="h-2.5 w-2.5 fill-current animate-pulse" /> Early Adopter Launch Offer
-            </span>
-          </div>
-
-          {/* Pricing Details */}
-          <div className="mt-6 text-center">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="text-[16px] text-muted-foreground/60 line-through font-medium">
-                ₹499
-              </span>
-              <span className="text-[50px] font-semibold tracking-tight text-white leading-none">
-                ₹99
-              </span>
+          {/* Coffee Icon Header */}
+          <div className="text-center">
+            <div className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/[0.03] border border-white/5 mb-5 transition-transform duration-500 group-hover:rotate-[10deg] group-hover:scale-115">
+              <span className="text-[32px] select-none filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)] leading-none">☕</span>
             </div>
-            <p className="mt-2.5 text-[13px] font-medium text-foreground/80 tracking-wide">
-              "Pay once. Own forever."
+            
+            {/* Playful Header */}
+            <h3 className="text-[20px] font-bold text-white tracking-tight">
+              Get Bro a Coffee
+            </h3>
+            
+            {/* Playful Subtext */}
+            <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground font-light">
+              Support late night debugging sessions.
             </p>
           </div>
 
-          {/* Divider Line */}
-          <div className="my-5.5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          {/* Small Note Box */}
+          <div className="mt-5.5 rounded-xl bg-white/[0.01] border border-white/5 p-3 text-center transition-colors duration-300 group-hover:bg-white/[0.02]">
+            <span className="text-[12.5px] font-semibold text-primary tracking-wide">
+              ₹99
+            </span>
+            <span className="mx-2 text-muted-foreground/35 text-[10px]">•</span>
+            <span className="text-[12.5px] text-foreground/80 font-medium">
+              Pay once
+            </span>
+            <span className="mx-2 text-muted-foreground/35 text-[10px]">•</span>
+            <span className="text-[12.5px] text-foreground/80 font-medium">
+              Own forever
+            </span>
+          </div>
 
-          {/* Feature List */}
-          <ul className="space-y-3">
-            {featuresList.map((f) => (
-              <li key={f} className="flex items-center gap-2.5 text-[13px] text-foreground/85">
-                <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="font-light tracking-wide">{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA Button */}
-          <div className="mt-7">
+          {/* Glowing Playful CTA Button */}
+          <div className="mt-6">
             <button
               onClick={handlePayment}
-              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-semibold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary cursor-pointer"
+              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-bold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary cursor-pointer"
             >
               {/* Button light hover glow overlay */}
               <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              Get Lifetime Access Now
+              Buy a Coffee
             </button>
           </div>
 
-          {/* Guarantee Subtext */}
-          <p className="mt-3 text-center text-[9.5px] text-muted-foreground/80 tracking-wide font-mono">
-            SECURE ONE-TIME PAYMENT
-          </p>
+          {/* Indie Developer Verification Tag */}
+          <div className="mt-4 flex items-center justify-center gap-1.5 text-[10.5px] text-muted-foreground/45 uppercase tracking-wider font-mono">
+            <span>secure payments</span>
+            <span>•</span>
+            <span>instant access</span>
+          </div>
         </motion.div>
       </div>
 
@@ -671,7 +639,7 @@ export function Pricing() {
                   <Sparkles className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="text-[16px] font-semibold text-white tracking-tight">
-                  Pay with UPI
+                  Buy Bro a Coffee
                 </h3>
                 <p className="mt-1 text-[12px] text-muted-foreground leading-normal px-2">
                   Scan the QR code with GPay, PhonePe, Paytm, or your UPI app.
