@@ -1,5 +1,19 @@
-import { motion } from "motion/react";
-import { Search, Target, Sparkles, Code2, CheckCircle2, Download, ExternalLink, Github, Twitter, Heart, Send } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Search,
+  Target,
+  Sparkles,
+  Code2,
+  CheckCircle2,
+  Download,
+  ExternalLink,
+  Github,
+  Twitter,
+  Heart,
+  Send,
+  ChevronDown,
+} from "lucide-react";
 import { IDEMockup } from "./IDEMockup";
 import { Logo } from "./Logo";
 import bannerImg from "./banner.png";
@@ -18,10 +32,26 @@ export function Logos() {
 }
 
 const features = [
-  { icon: Search, title: "Analyze Codebase", desc: "Understand your code, content, structure, and intent in depth." },
-  { icon: Target, title: "Improve Discoverability", desc: "Get actionable insights to improve visibility in AI search systems." },
-  { icon: Sparkles, title: "Generate Optimizations", desc: "Automatically generate AI-ready content and technical recommendations." },
-  { icon: Code2, title: "AI Search Ready", desc: "Make your project ready for ChatGPT, Gemini, Perplexity and more." },
+  {
+    icon: Search,
+    title: "Analyze Codebase",
+    desc: "Understand your code, content, structure, and intent in depth.",
+  },
+  {
+    icon: Target,
+    title: "Improve Discoverability",
+    desc: "Get actionable insights to improve visibility in AI search systems.",
+  },
+  {
+    icon: Sparkles,
+    title: "Generate Optimizations",
+    desc: "Automatically generate AI-ready content and technical recommendations.",
+  },
+  {
+    icon: Code2,
+    title: "AI Search Ready",
+    desc: "Make your project ready for ChatGPT, Gemini, Perplexity and more.",
+  },
 ];
 
 export function Features() {
@@ -31,7 +61,10 @@ export function Features() {
         <motion.p {...fadeUp} className="text-[11px] uppercase tracking-[0.18em] text-primary">
           Features
         </motion.p>
-        <motion.h2 {...fadeUp} className="mt-4 max-w-2xl text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight">
+        <motion.h2
+          {...fadeUp}
+          className="mt-4 max-w-2xl text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight"
+        >
           Everything you need for AI discoverability
         </motion.h2>
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -76,7 +109,10 @@ export function HowItWorks() {
         <motion.p {...fadeUp} className="text-[11px] uppercase tracking-[0.18em] text-primary">
           How it works
         </motion.p>
-        <motion.h2 {...fadeUp} className="mt-4 max-w-3xl text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight">
+        <motion.h2
+          {...fadeUp}
+          className="mt-4 max-w-3xl text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight"
+        >
           From code to discoverability in 4 steps
         </motion.h2>
 
@@ -111,12 +147,15 @@ export function NativeShowcase() {
     <section className="py-28">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[0.9fr_1.2fr]">
         <motion.div {...fadeUp}>
-          <p className="text-[11px] uppercase tracking-[0.18em] text-primary">Built for developers</p>
+          <p className="text-[11px] uppercase tracking-[0.18em] text-primary">
+            Built for developers
+          </p>
           <h2 className="mt-4 text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight">
             Works where you build.
           </h2>
           <p className="mt-5 max-w-md text-[14.5px] leading-relaxed text-muted-foreground">
-            Indexer is built natively for Antigravity IDE, so you can analyze, optimize, and implement without leaving your flow.
+            Indexer is built natively for Antigravity IDE, so you can analyze, optimize, and
+            implement without leaving your flow.
           </p>
           <ul className="mt-6 space-y-3 text-[13.5px] text-foreground/85">
             {[
@@ -149,17 +188,17 @@ const testimonials = [
   {
     q: "bro honestly this extension is a lifesaver. i was struggling so much to get my site ranked and cited on perplexity and chatgpt, but indexer literally pointed out exactly what was missing in my html and sitemap. highly recommend!",
     a: "Rohan Mehta",
-    r: "Self-taught Developer"
+    r: "Self-taught Developer",
   },
   {
     q: "tbh i just build things for the vibe, but having my projects show up correctly when people search on AI tools is so sick. this tool runs super fast in the IDE, one click and boom, everything is optimized.",
     a: "Aditya Rao",
-    r: "Vibe Coder"
+    r: "Vibe Coder",
   },
   {
     q: "Building a product in 2026 without AI discoverability is a waste of time. Indexer is now a core part of our dev workflow. Super clean UI and the recommendations are spot on.",
     a: "Neha Gupta",
-    r: "Techy Founder"
+    r: "Techy Founder",
   },
 ];
 
@@ -170,6 +209,12 @@ export function Testimonials() {
         <motion.p {...fadeUp} className="text-[11px] uppercase tracking-[0.18em] text-primary">
           Loved by developers
         </motion.p>
+        <motion.h2
+          {...fadeUp}
+          className="mt-4 text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight"
+        >
+          What the developer community is saying
+        </motion.h2>
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div
@@ -182,7 +227,9 @@ export function Testimonials() {
             >
               <div className="flex gap-0.5 text-primary">
                 {Array.from({ length: 5 }).map((_, k) => (
-                  <span key={k} className="text-[13px]">★</span>
+                  <span key={k} className="text-[13px]">
+                    ★
+                  </span>
                 ))}
               </div>
               <p className="mt-3 text-[13.5px] leading-relaxed text-foreground/90">"{t.q}"</p>
@@ -201,6 +248,108 @@ export function Testimonials() {
       </div>
     </section>
   );
+}
+
+const faqs = [
+  {
+    q: "How does Indexer optimize my website for AI search engines like ChatGPT, Gemini, and Perplexity?",
+    a: "Indexer performs deep local codebase scans to detect semantic search issues, missing crawler configurations (like robots.txt and sitemap.xml), and suboptimal heading hierarchies. It then generates high-density JSON-LD schemas, LLM-targeted llms.txt files, and SEO-friendly copy to help conversational engines retrieve and cite your content.",
+  },
+  {
+    q: "What is Generative Engine Optimization (GEO) and why does my codebase need it?",
+    a: "Generative Engine Optimization (GEO) is the practice of structuring code, content, and metadata to be easily parsed, retrieved, and cited by Generative AI systems like ChatGPT Search, Perplexity, and Google AI Overviews. Traditional SEO is not enough; your codebase needs clean machine-readable paths so AI engines trust and reference your brand.",
+  },
+  {
+    q: "Does Indexer support React, Vite, and other modern frameworks?",
+    a: "Yes, Indexer is built to support modern JavaScript and TypeScript frameworks including React, Vite, Next.js, as well as traditional HTML and static documentation sites. It automatically detects your tech stack and provides copy-paste ready implementation recipes.",
+  },
+  {
+    q: "Is my codebase data sent to external servers during analysis?",
+    a: "No, Indexer runs entirely locally on your machine within your IDE (Antigravity or VS Code). Your proprietary codebase and sensitive credentials never leave your local workspace, ensuring total security and privacy.",
+  },
+];
+
+export function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section id="faq" className="py-28 relative overflow-hidden">
+      <div className="mx-auto max-w-4xl px-6 relative z-10">
+        <motion.p
+          {...fadeUp}
+          className="text-[11px] uppercase tracking-[0.18em] text-primary text-center"
+        >
+          Frequently Asked Questions
+        </motion.p>
+        <motion.h2
+          {...fadeUp}
+          className="mt-4 text-center text-[clamp(2rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-tight"
+        >
+          Got Questions? We Have Answers.
+        </motion.h2>
+        <motion.p
+          {...fadeUp}
+          className="mt-4 text-center text-[14px] text-muted-foreground max-w-md mx-auto"
+        >
+          Learn how Indexer empowers you to take full control of your search discoverability in the
+          generative AI era.
+        </motion.p>
+
+        <div className="mt-16 space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                className="rounded-2xl border border-white/8 bg-white/[0.01] hover:bg-white/[0.02] transition-colors overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                  <span className="text-[15px] font-semibold tracking-tight text-foreground/90 pr-4">
+                    {faq.q}
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: EASE }}
+                    className="text-muted-foreground/80 flex-shrink-0"
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </motion.div>
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-answer-${idx}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: EASE }}
+                    >
+                      <div className="px-6 pb-6 text-[13.5px] leading-relaxed text-muted-foreground border-t border-white/5 pt-4">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function FAQSectionSpacer() {
+  return null;
 }
 
 export function CTA() {
@@ -272,23 +421,31 @@ export function Footer() {
               <span className="text-[22px] font-bold tracking-tight text-white">Indexer</span>
             </a>
             <p className="max-w-sm text-[13.5px] leading-relaxed text-muted-foreground">
-              Empowering developers to optimize their codebase and content for the age of AI search. Built natively for modern agentic workflows.
+              Empowering developers to optimize their codebase and content for the age of AI search.
+              Built natively for modern agentic workflows.
             </p>
           </div>
 
           {/* Links Column 1 */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">Product</h4>
+            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">
+              Product
+            </h4>
             <ul className="flex flex-col gap-2.5 text-[13.5px]">
               {[
                 { label: "Features", href: "#features" },
                 { label: "How It Works", href: "#how" },
-                { label: "Install Extension", href: "https://open-vsx.org/extension/indexer-app/indexer" }
+                {
+                  label: "Install Extension",
+                  href: "https://open-vsx.org/extension/indexer-app/indexer",
+                },
               ].map((item) => (
                 <li key={item.label}>
-                  <a 
-                    href={item.href} 
-                    {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  <a
+                    href={item.href}
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="text-muted-foreground hover:text-white hover:translate-x-0.5 transition-all inline-flex items-center gap-1 group"
                   >
                     {item.label}
@@ -300,7 +457,9 @@ export function Footer() {
 
           {/* Newsletter Column */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">Newsletter</h4>
+            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">
+              Newsletter
+            </h4>
             <p className="text-[13px] text-muted-foreground leading-normal">
               Stay updated on AI SEO optimizations and extension releases.
             </p>

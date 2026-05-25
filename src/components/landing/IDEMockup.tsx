@@ -74,9 +74,21 @@ export function IDEMockup() {
 
             <div className="flex flex-col gap-2">
               {[
-                { icon: Search, title: "Understand", desc: "Analyze your codebase and content for AI search." },
-                { icon: Sparkles, title: "Optimize", desc: "Get actionable recommendations to improve discoverability." },
-                { icon: Rocket, title: "Implement", desc: "Apply optimizations and generate AI-ready content." },
+                {
+                  icon: Search,
+                  title: "Understand",
+                  desc: "Analyze your codebase and content for AI search.",
+                },
+                {
+                  icon: Sparkles,
+                  title: "Optimize",
+                  desc: "Get actionable recommendations to improve discoverability.",
+                },
+                {
+                  icon: Rocket,
+                  title: "Implement",
+                  desc: "Apply optimizations and generate AI-ready content.",
+                },
               ].map((row) => (
                 <div
                   key={row.title}
@@ -85,7 +97,9 @@ export function IDEMockup() {
                   <row.icon className="mt-0.5 h-3.5 w-3.5 text-primary" />
                   <div className="min-w-0 flex-1">
                     <div className="text-[11.5px] font-medium">{row.title}</div>
-                    <div className="text-[10.5px] leading-snug text-muted-foreground">{row.desc}</div>
+                    <div className="text-[10.5px] leading-snug text-muted-foreground">
+                      {row.desc}
+                    </div>
                   </div>
                   <ChevronRight className="mt-0.5 h-3 w-3 text-muted-foreground" />
                 </div>
@@ -94,8 +108,12 @@ export function IDEMockup() {
 
             <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-3 text-[11px] text-muted-foreground">
               <User className="h-3.5 w-3.5" />
-              <div className="flex items-center gap-1.5"><History className="h-3.5 w-3.5" /> History</div>
-              <div className="flex items-center gap-1.5"><Settings className="h-3.5 w-3.5" /> Settings</div>
+              <div className="flex items-center gap-1.5">
+                <History className="h-3.5 w-3.5" /> History
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Settings className="h-3.5 w-3.5" /> Settings
+              </div>
             </div>
           </div>
 
@@ -116,7 +134,8 @@ export function IDEMockup() {
                 <Sparkles className="h-3.5 w-3.5" /> Suggestion
               </div>
               <div className="mt-1 text-[11px] text-foreground/90">
-                Add structured data for <span className="text-primary">Article</span> to improve AI citation.
+                Add structured data for <span className="text-primary">Article</span> to improve AI
+                citation.
               </div>
               <button className="mt-2 w-full rounded-md bg-white/10 px-2 py-1 text-[10.5px] hover:bg-white/15">
                 Apply optimization
@@ -134,14 +153,84 @@ export function IDEMockup() {
 
 function CodeLines() {
   const lines = [
-    { n: 1, t: <><span className="text-[oklch(0.7_0.15_310)]">export default function</span> <span className="text-[oklch(0.78_0.16_85)]">Page</span>() {"{"}</> },
-    { n: 2, t: <>  <span className="text-[oklch(0.7_0.15_310)]">return</span> (</> },
-    { n: 3, t: <>    {"<"}<span className="text-[oklch(0.7_0.16_200)]">main</span> <span className="text-[oklch(0.78_0.16_85)]">className</span>=<span className="text-[oklch(0.75_0.15_140)]">"prose"</span>{">"}</> },
-    { n: 4, t: <>      {"<"}<span className="text-[oklch(0.7_0.16_200)]">h1</span>{">"}Built for the AI Web{"</"}<span className="text-[oklch(0.7_0.16_200)]">h1</span>{">"}</> },
-    { n: 5, t: <>      {"<"}<span className="text-[oklch(0.7_0.16_200)]">p</span>{">"}Indexer makes your project</> },
-    { n: 6, t: <>         discoverable by AI systems.{"</"}<span className="text-[oklch(0.7_0.16_200)]">p</span>{">"}</> },
-    { n: 7, t: <>    {"</"}<span className="text-[oklch(0.7_0.16_200)]">main</span>{">"}</> },
-    { n: 8, t: <>  );</> },
+    {
+      n: 1,
+      t: (
+        <>
+          <span className="text-[oklch(0.7_0.15_310)]">export default function</span>{" "}
+          <span className="text-[oklch(0.78_0.16_85)]">Page</span>() {"{"}
+        </>
+      ),
+    },
+    {
+      n: 2,
+      t: (
+        <>
+          {" "}
+          <span className="text-[oklch(0.7_0.15_310)]">return</span> (
+        </>
+      ),
+    },
+    {
+      n: 3,
+      t: (
+        <>
+          {" "}
+          {"<"}
+          <span className="text-[oklch(0.7_0.16_200)]">main</span>{" "}
+          <span className="text-[oklch(0.78_0.16_85)]">className</span>=
+          <span className="text-[oklch(0.75_0.15_140)]">"prose"</span>
+          {">"}
+        </>
+      ),
+    },
+    {
+      n: 4,
+      t: (
+        <>
+          {" "}
+          {"<"}
+          <span className="text-[oklch(0.7_0.16_200)]">h1</span>
+          {">"}Built for the AI Web{"</"}
+          <span className="text-[oklch(0.7_0.16_200)]">h1</span>
+          {">"}
+        </>
+      ),
+    },
+    {
+      n: 5,
+      t: (
+        <>
+          {" "}
+          {"<"}
+          <span className="text-[oklch(0.7_0.16_200)]">p</span>
+          {">"}Indexer makes your project
+        </>
+      ),
+    },
+    {
+      n: 6,
+      t: (
+        <>
+          {" "}
+          discoverable by AI systems.{"</"}
+          <span className="text-[oklch(0.7_0.16_200)]">p</span>
+          {">"}
+        </>
+      ),
+    },
+    {
+      n: 7,
+      t: (
+        <>
+          {" "}
+          {"</"}
+          <span className="text-[oklch(0.7_0.16_200)]">main</span>
+          {">"}
+        </>
+      ),
+    },
+    { n: 8, t: <> );</> },
     { n: 9, t: <>{"}"}</> },
   ];
   return (

@@ -7,6 +7,7 @@ import {
   HowItWorks,
   NativeShowcase,
   Testimonials,
+  FAQ,
   CTA,
   Footer,
 } from "@/components/landing/Sections";
@@ -22,6 +23,7 @@ export default function App() {
       <HowItWorks />
       <NativeShowcase />
       <Testimonials />
+      <FAQ />
       <CTA />
       <Footer />
     </main>

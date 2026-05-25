@@ -1,14 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/components/landing/Logo.tsx" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indexer — Optimize for AI Search</title>
-    <meta name="description" content="Indexer analyzes your codebase and generates AI-ready optimizations directly inside Antigravity IDE. Built for discoverability in ChatGPT, Gemini, and Perplexity." />
-    <meta property="og:title" content="Indexer — Optimize for AI Search" />
-    <meta property="og:description" content="AI-ready optimizations for your project, built natively for Antigravity IDE." />
+    <meta name="google-site-verification" content="T0FhnoJ2mcHlb5j9mDoA3vgK4cYbKYaG5bXZ05BeRFE" />
+    <title>Indexer — Optimize Codebase for AI Search Engines (GEO/AEO)</title>
+    <meta
+      name="description"
+      content="Indexer analyzes your codebase and generates AI-ready optimizations (GEO/AEO) directly inside Antigravity IDE. Get discovered and cited by ChatGPT, Perplexity, and Gemini."
+    />
+    <meta
+      name="keywords"
+      content="Generative Engine Optimization, GEO, Answer Engine Optimization, AEO, AI Search Optimization, LLM SEO, ChatGPT search optimization, Perplexity SEO, Gemini search citations, Antigravity IDE extension, developer SEO tools"
+    />
+    <meta name="author" content="Indexer Team" />
+    <link rel="canonical" href="https://indexer.dev/" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://indexer.dev/" />
+    <meta
+      property="og:title"
+      content="Indexer — Optimize Codebase for AI Search Engines (GEO/AEO)"
+    />
+    <meta
+      property="og:description"
+      content="Indexer analyzes your codebase and generates AI-ready optimizations directly inside Antigravity IDE. Built for discoverability in ChatGPT, Gemini, and Perplexity."
+    />
+    <meta property="og:image" content="https://indexer.dev/banner.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://indexer.dev/" />
+    <meta
+      property="twitter:title"
+      content="Indexer — Optimize Codebase for AI Search Engines (GEO/AEO)"
+    />
+    <meta
+      property="twitter:description"
+      content="Indexer analyzes your codebase and generates AI-ready optimizations directly inside Antigravity IDE. Built for discoverability in ChatGPT, Gemini, and Perplexity."
+    />
+    <meta property="twitter:image" content="https://indexer.dev/banner.png" />
+
+    <!-- Favicon configuration -->
+    <link rel="icon" type="image/svg+xml" href="/src/components/landing/Logo.tsx" />
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://indexer.dev/#organization",
+            "name": "Indexer",
+            "url": "https://indexer.dev/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://indexer.dev/banner.png",
+              "caption": "Indexer — Build for the AI Web"
+            },
+            "description": "Empowering developers to optimize their codebase and content for the age of AI search. Built natively for modern agentic workflows inside Antigravity IDE.",
+            "knowsAbout": [
+              "Generative Engine Optimization",
+              "Answer Engine Optimization",
+              "Search Engine Optimization",
+              "Artificial Intelligence",
+              "Software Development",
+              "Antigravity IDE"
+            ]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://indexer.dev/#software",
+            "name": "Indexer AI Search Optimizer",
+            "operatingSystem": "Windows, macOS, Linux",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "IDE Extension / VS Code Extension",
+            "downloadUrl": "https://open-vsx.org/extension/indexer-app/indexer",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "publisher": {
+              "@id": "https://indexer.dev/#organization"
+            },
+            "description": "Indexer is a developer extension built natively for Antigravity IDE and VS Code that analyzes source code and generates automated GEO and AEO optimizations for AI engines.",
+            "requirements": "Antigravity IDE or VS Code"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://indexer.dev/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does Indexer optimize my website for AI search engines like ChatGPT, Gemini, and Perplexity?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Indexer performs deep local codebase scans to detect semantic search issues, missing crawler configurations (like robots.txt and sitemap.xml), and suboptimal heading hierarchies. It then generates high-density JSON-LD schemas, LLM-targeted llms.txt files, and SEO-friendly copy to help conversational engines retrieve and cite your content."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is Generative Engine Optimization (GEO) and why does my codebase need it?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Generative Engine Optimization (GEO) is the practice of structuring code, content, and metadata to be easily parsed, retrieved, and cited by Generative AI systems like ChatGPT Search, Perplexity, and Google AI Overviews. Traditional SEO is not enough; your codebase needs clean machine-readable paths so AI engines trust and reference your brand."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Indexer support React, Vite, and other modern frameworks?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Indexer is built to support modern JavaScript and TypeScript frameworks including React, Vite, Next.js, as well as traditional HTML and static documentation sites. It automatically detects your tech stack and provides copy-paste ready implementation recipes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my codebase data sent to external servers during analysis?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No, Indexer runs entirely locally on your machine within your IDE (Antigravity or VS Code). Your proprietary codebase and sensitive credentials never leave your local workspace, ensuring total security and privacy."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-background text-foreground antialiased selection:bg-primary/20">
     <div id="root"></div>

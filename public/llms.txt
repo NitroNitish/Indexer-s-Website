@@ -1,0 +1,21 @@
+# Indexer
+
+> Optimize your codebase and content for AI search discoverability directly within Antigravity IDE.
+
+## System Overview
+
+Indexer is a premium developer tool built natively as an extension for Antigravity IDE and VS Code. It bridges the gap between traditional software development and the modern AI-assisted search era. Indexer performs instant, local codebase analyses to detect and resolve semantic discoverability gaps, indexability errors, and SEO/GEO/AEO structural issues.
+
+By running fully local diagnostic sweeps, Indexer helps engineering and marketing teams optimize their documentation, structure semantic landing page metadata, generate high-density schemas, and build crawler pathways. This ensures that developer products, open-source libraries, and SaaS tools are correctly understood, indexed, and cited by AI search and answer engines like ChatGPT, Perplexity, Gemini, Claude, and Bing Copilot.
+
+## Key Features
+
+- **Local Codebase Diagnostic Sweeps:** Instantly scans projects to detect missing crawler configurations (e.g., sitemap.xml, robots.txt, llms.txt), improper semantic heading hierarchies, or incomplete metadata.
+- **AI-Search Ready Optimizations:** Generates tailored, copy-paste ready technical files, content snippets, and JSON-LD schemas customized for specific developer niches.
+- **Antigravity IDE Native Extension:** Seamless integration that works where developers code, with one-click implementation triggers.
+- **Advanced AEO/GEO Focus:** Specially tuned to target Answer Engine Optimization (featured snippets, voice search, LLM RAG ingestion) and Generative Engine Optimization.
+
+## Routes & Entrypoints
+
+- [/](https://indexer.dev/) — The main web portal and features showcase for the Indexer application extension.
+- [Extension Installer](https://open-vsx.org/extension/indexer-app/indexer) — Direct installation link on Open VSX.

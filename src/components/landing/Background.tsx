@@ -24,13 +24,19 @@ export function AmbientBackground() {
       <div className="absolute inset-0 bg-background" />
       {/* mesh gradient orbs */}
       <motion.div
-        style={{ x: useTransform(sx, (v) => (v - 0.5) * 60), y: useTransform(sy, (v) => (v - 0.5) * 40) }}
+        style={{
+          x: useTransform(sx, (v) => (v - 0.5) * 60),
+          y: useTransform(sy, (v) => (v - 0.5) * 40),
+        }}
         className="absolute -top-40 left-1/4 h-[40rem] w-[40rem] rounded-full opacity-50 blur-3xl will-change-transform"
       >
         <div className="h-full w-full rounded-full bg-[radial-gradient(circle_at_center,oklch(0.55_0.24_280/0.55),transparent_60%)]" />
       </motion.div>
       <motion.div
-        style={{ x: useTransform(sx, (v) => (0.5 - v) * 80), y: useTransform(sy, (v) => (0.5 - v) * 60) }}
+        style={{
+          x: useTransform(sx, (v) => (0.5 - v) * 80),
+          y: useTransform(sy, (v) => (0.5 - v) * 60),
+        }}
         className="absolute top-[20rem] right-0 h-[36rem] w-[36rem] rounded-full opacity-40 blur-3xl will-change-transform"
       >
         <div className="h-full w-full rounded-full bg-[radial-gradient(circle_at_center,oklch(0.48_0.2_265/0.5),transparent_60%)]" />

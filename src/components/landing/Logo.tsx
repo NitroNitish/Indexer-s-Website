@@ -12,30 +12,18 @@ export function Logo({ className = "h-7 w-7" }: { className?: string }) {
           <stop offset="100%" stopColor="#4f46e5" />
         </linearGradient>
       </defs>
-      
+
       {/* Left White Wedge (3D Perspective Bar) */}
-      <path 
-        d="M 28 25 L 44 18 L 44 82 L 28 75 Z" 
-        fill="url(#white-grad)" 
-      />
-      
+      <path d="M 28 25 L 44 18 L 44 82 L 28 75 Z" fill="url(#white-grad)" />
+
       {/* Top Purple Bar */}
-      <path 
-        d="M 52 24 H 92 L 82 36 H 52 Z" 
-        fill="url(#purple-grad)" 
-      />
-      
+      <path d="M 52 24 H 92 L 82 36 H 52 Z" fill="url(#purple-grad)" />
+
       {/* Middle Purple Bar */}
-      <path 
-        d="M 52 44 H 92 L 82 56 H 52 Z" 
-        fill="url(#purple-grad)" 
-      />
-      
+      <path d="M 52 44 H 92 L 82 56 H 52 Z" fill="url(#purple-grad)" />
+
       {/* Bottom Purple Bar */}
-      <path 
-        d="M 52 64 H 92 L 82 76 H 52 Z" 
-        fill="url(#purple-grad)" 
-      />
+      <path d="M 52 64 H 92 L 82 76 H 52 Z" fill="url(#purple-grad)" />
     </svg>
   );
 }
