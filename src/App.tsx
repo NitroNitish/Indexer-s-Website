@@ -8,6 +8,7 @@ import {
   HowItWorks,
   NativeShowcase,
   Testimonials,
+  Pricing,
   FAQ,
   CTA,
   Footer,
@@ -24,6 +25,7 @@ export default function App() {
       <HowItWorks />
       <NativeShowcase />
       <Testimonials />
+      <Pricing />
       <FAQ />
       <CTA />
       <Footer />
