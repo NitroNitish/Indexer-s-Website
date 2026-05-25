@@ -3,6 +3,8 @@ import { Download, ExternalLink, Star } from "lucide-react";
 import { useRef } from "react";
 import { IDEMockup } from "./IDEMockup";
 
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const rx = useMotionValue(0);
@@ -27,7 +29,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: EASE }}
           className="relative z-10"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12px] text-muted-foreground backdrop-blur">
@@ -71,7 +73,7 @@ export function Hero() {
           onPointerLeave={reset}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          transition={{ duration: 1, ease: EASE, delay: 0.15 }}
           style={{ transform: tilt, transformStyle: "preserve-3d" }}
           className="relative will-change-transform"
         >
