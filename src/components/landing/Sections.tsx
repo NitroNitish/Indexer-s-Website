@@ -505,13 +505,35 @@ export function Footer() {
 export function Pricing() {
   const [showDesktopModal, setShowDesktopModal] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [amount, setAmount] = useState("99");
+  const [activePill, setActivePill] = useState<"1" | "2" | "custom">("1");
+  const [customVal, setCustomVal] = useState("");
 
   const upiId = "nitronitish@fam";
-  const amount = "99";
   const payeeName = "Indexer";
   const transactionNote = "Indexer Lifetime Access";
+  
+  // Real-time dynamic URL computation
   const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}&color=0-0-0&bgcolor=255-255-255`;
+
+  const handlePillClick = (pill: "1" | "2" | "custom") => {
+    setActivePill(pill);
+    if (pill === "1") {
+      setAmount("99");
+    } else if (pill === "2") {
+      setAmount("198");
+    } else {
+      setAmount(customVal || "99");
+    }
+  };
+
+  const handleCustomChange = (val: string) => {
+    // Only allow positive integers
+    const cleanVal = val.replace(/[^0-9]/g, "");
+    setCustomVal(cleanVal);
+    setAmount(cleanVal || "0");
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(upiId);
@@ -562,31 +584,82 @@ export function Pricing() {
             </h3>
             
             {/* Playful Subtext */}
-            <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground font-light">
-              Support late night debugging sessions.
+            <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground font-light px-2">
+              I optimized your discoverability.<br />You optimize my caffeine levels.
             </p>
           </div>
 
+          {/* Playful Pill Selectors */}
+          <div className="mt-5 flex justify-center gap-1.5">
+            <button
+              onClick={() => handlePillClick("1")}
+              className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-semibold tracking-tight transition-all duration-200 cursor-pointer ${
+                activePill === "1"
+                  ? "bg-primary/10 border-primary text-primary shadow-[0_0_12px_-3px_oklch(0.66_0.21_280/0.4)]"
+                  : "bg-white/[0.01] border-white/5 text-muted-foreground hover:bg-white/5 hover:text-white"
+              }`}
+            >
+              ☕ 1 Coffee (₹99)
+            </button>
+            <button
+              onClick={() => handlePillClick("2")}
+              className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-semibold tracking-tight transition-all duration-200 cursor-pointer ${
+                activePill === "2"
+                  ? "bg-primary/10 border-primary text-primary shadow-[0_0_12px_-3px_oklch(0.66_0.21_280/0.4)]"
+                  : "bg-white/[0.01] border-white/5 text-muted-foreground hover:bg-white/5 hover:text-white"
+              }`}
+            >
+              ☕☕ 2 (₹198)
+            </button>
+            <button
+              onClick={() => handlePillClick("custom")}
+              className={`px-2.5 py-1.5 rounded-lg border text-[11px] font-semibold tracking-tight transition-all duration-200 cursor-pointer ${
+                activePill === "custom"
+                  ? "bg-primary/10 border-primary text-primary shadow-[0_0_12px_-3px_oklch(0.66_0.21_280/0.4)]"
+                  : "bg-white/[0.01] border-white/5 text-muted-foreground hover:bg-white/5 hover:text-white"
+              }`}
+            >
+              ⚡ Custom
+            </button>
+          </div>
+
+          {/* Custom Amount Input field */}
+          {activePill === "custom" && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3.5 flex items-center justify-center max-w-[160px] mx-auto"
+            >
+              <div className="relative flex items-center w-full rounded-xl border border-white/8 bg-white/[0.02] px-3 py-1.5 text-[12.5px] text-white focus-within:border-primary/40 focus-within:bg-white/[0.04] transition-all">
+                <span className="text-muted-foreground/60 font-medium select-none pr-1">₹</span>
+                <input
+                  type="text"
+                  value={customVal}
+                  onChange={(e) => handleCustomChange(e.target.value)}
+                  placeholder="99"
+                  className="w-full bg-transparent outline-none text-[12.5px] font-semibold text-white placeholder-muted-foreground/30 font-mono"
+                />
+              </div>
+            </motion.div>
+          )}
+
           {/* Small Note Box */}
-          <div className="mt-5.5 rounded-xl bg-white/[0.01] border border-white/5 p-3 text-center transition-colors duration-300 group-hover:bg-white/[0.02]">
+          <div className="mt-5 rounded-xl bg-white/[0.01] border border-white/5 p-3 text-center transition-colors duration-300 group-hover:bg-white/[0.02]">
             <span className="text-[12.5px] font-semibold text-primary tracking-wide">
-              ₹99
+              ₹{amount || "0"}
             </span>
             <span className="mx-2 text-muted-foreground/35 text-[10px]">•</span>
             <span className="text-[12.5px] text-foreground/80 font-medium">
-              Pay once
-            </span>
-            <span className="mx-2 text-muted-foreground/35 text-[10px]">•</span>
-            <span className="text-[12.5px] text-foreground/80 font-medium">
-              Own forever
+              Lifetime access
             </span>
           </div>
 
           {/* Glowing Playful CTA Button */}
-          <div className="mt-6">
+          <div className="mt-5.5">
             <button
               onClick={handlePayment}
-              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-bold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary cursor-pointer"
+              disabled={!amount || amount === "0" || isNaN(Number(amount))}
+              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-bold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
             >
               {/* Button light hover glow overlay */}
               <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -656,7 +729,7 @@ export function Pricing() {
 
                 {/* Price Badge */}
                 <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-0.5 text-[12px] font-medium text-white border border-white/5">
-                  Amount to Pay: <span className="font-semibold text-primary">₹99</span>
+                  Amount to Pay: <span className="font-semibold text-primary">₹{amount}</span>
                 </div>
 
                 {/* Divider */}
