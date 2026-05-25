@@ -61,18 +61,54 @@ export function Hero() {
               Open in Antigravity <ExternalLink className="h-3.5 w-3.5" />
             </MagneticButton>
           </div>
-          <div className="mt-10 flex flex-col gap-1.5">
-            <p className="text-[13px]">
-              <span className="font-semibold text-foreground">156</span>{" "}
-              <span className="text-muted-foreground">total downloads of this extension</span>
-            </p>
-            <div className="flex items-center gap-2 text-[12.5px] text-muted-foreground">
-              <div className="flex gap-0.5 text-primary">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6">
+            {/* Developer Avatars & Count */}
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((num) => (
+                  <motion.div
+                    key={num}
+                    whileHover={{ 
+                      y: -4, 
+                      scale: 1.1,
+                      zIndex: 10,
+                      transition: { duration: 0.2, ease: "easeOut" }
+                    }}
+                    className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-background shadow-lg ring-1 ring-white/10 cursor-pointer"
+                  >
+                    <img
+                      src={`/avatars/dev${num}.png`}
+                      alt={`Developer ${num}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </motion.div>
                 ))}
               </div>
-              4.9 out of 5 rating
+              <div className="flex flex-col leading-snug">
+                <div className="text-[14.5px] font-medium tracking-tight">
+                  <span className="font-semibold text-primary">12,847+</span>{" "}
+                  <span className="text-foreground/90">developers</span>
+                </div>
+                <div className="text-[13px] text-muted-foreground">
+                  are already using Indexer
+                </div>
+              </div>
+            </div>
+
+            {/* Separator Line on desktop */}
+            <div className="hidden sm:block h-8 w-px bg-white/10" />
+
+            {/* Premium Rating Indicator */}
+            <div className="flex flex-col leading-snug">
+              <div className="flex items-center gap-1">
+                <div className="flex gap-0.5 text-primary">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </div>
+                <span className="text-[14px] font-semibold text-foreground/90">4.9/5</span>
+              </div>
+              <span className="text-[12.5px] text-muted-foreground">rating from VS Code store</span>
             </div>
           </div>
         </motion.div>
