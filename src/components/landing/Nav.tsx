@@ -12,7 +12,7 @@ const links = [
 export function Nav() {
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
+      initial={{ y: -20 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
       className="fixed top-0 left-0 right-0 z-50"
