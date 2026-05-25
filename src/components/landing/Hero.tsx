@@ -77,7 +77,7 @@ export function Hero() {
                     className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-background shadow-lg ring-1 ring-white/10 cursor-pointer"
                   >
                     <img
-                      src={`/avatars/dev${num}.png`}
+                      src={`/avatars/dev${num}.webp`}
                       alt={`Developer ${num}`}
                       className="h-full w-full object-cover"
                     />
@@ -86,7 +86,7 @@ export function Hero() {
               </div>
               <div className="flex flex-col leading-snug">
                 <div className="text-[14.5px] font-medium tracking-tight">
-                  <span className="font-semibold text-primary">12,847+</span>{" "}
+                  <span className="font-semibold text-primary">180+</span>{" "}
                   <span className="text-foreground/90">developers</span>
                 </div>
                 <div className="text-[13px] text-muted-foreground">
@@ -99,16 +99,13 @@ export function Hero() {
             <div className="hidden sm:block h-8 w-px bg-white/10" />
 
             {/* Premium Rating Indicator */}
-            <div className="flex flex-col leading-snug">
-              <div className="flex items-center gap-1">
-                <div className="flex gap-0.5 text-primary">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                  ))}
-                </div>
-                <span className="text-[14px] font-semibold text-foreground/90">4.9/5</span>
+            <div className="flex items-center gap-1.5">
+              <div className="flex gap-0.5 text-primary">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                ))}
               </div>
-              <span className="text-[12.5px] text-muted-foreground">rating from VS Code store</span>
+              <span className="text-[14px] font-medium text-foreground/90">4.9/5 rating</span>
             </div>
           </div>
         </motion.div>
