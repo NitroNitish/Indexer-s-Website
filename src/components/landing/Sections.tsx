@@ -1,12 +1,15 @@
 import { motion } from "motion/react";
-import { Search, Target, Sparkles, Code2, CheckCircle2 } from "lucide-react";
+import { Search, Target, Sparkles, Code2, CheckCircle2, Download, ExternalLink } from "lucide-react";
 import { IDEMockup } from "./IDEMockup";
+import { Logo } from "./Logo";
+
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.7, ease: EASE },
 };
 
 export function Logos() {
@@ -53,7 +56,7 @@ export function Features() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
               className="group relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.04] hover:shadow-[0_30px_60px_-30px_oklch(0.55_0.24_280/0.5)]"
             >
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
@@ -146,7 +149,7 @@ export function NativeShowcase() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, ease: EASE }}
           className="relative"
         >
           <div className="absolute -inset-6 rounded-3xl bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.24_280/0.3),transparent_65%)] blur-2xl" />
@@ -202,9 +205,6 @@ export function Testimonials() {
     </section>
   );
 }
-
-import { Logo } from "./Logo";
-import { Download, ExternalLink } from "lucide-react";
 
 export function CTA() {
   return (
