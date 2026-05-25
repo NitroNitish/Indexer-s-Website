@@ -13,6 +13,9 @@ import {
   Heart,
   Send,
   ChevronDown,
+  X,
+  Copy,
+  Check,
 } from "lucide-react";
 import { IDEMockup } from "./IDEMockup";
 import { Logo } from "./Logo";
@@ -500,6 +503,9 @@ export function Footer() {
 }
 
 export function Pricing() {
+  const [showDesktopModal, setShowDesktopModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+
   const featuresList = [
     "Lifetime access",
     "Future updates included",
@@ -507,6 +513,31 @@ export function Pricing() {
     "AI search optimization",
     "Antigravity integration",
   ];
+
+  const upiId = "nitronitish@fam";
+  const amount = "99";
+  const payeeName = "Indexer";
+  const transactionNote = "Indexer Lifetime Access";
+  const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}&color=0-0-0&bgcolor=255-255-255`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(upiId);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handlePayment = (e: React.MouseEvent) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      // On mobile, trigger standard deep link to launch user's UPI app directly
+      window.location.href = upiUrl;
+    } else {
+      // On desktop, show QR code modal instead of doing nothing or causing browser crash
+      e.preventDefault();
+      setShowDesktopModal(true);
+    }
+  };
 
   return (
     <section id="pricing" className="py-24 relative overflow-hidden">
@@ -587,16 +618,14 @@ export function Pricing() {
 
           {/* CTA Button */}
           <div className="mt-7">
-            <a
-              href="https://open-vsx.org/extension/indexer-app/indexer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-semibold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary"
+            <button
+              onClick={handlePayment}
+              className="relative group inline-flex w-full items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] py-3 text-[13.5px] font-semibold text-white shadow-[0_15px_40px_-15px_oklch(0.66_0.21_280/0.7)] transition-all duration-300 hover:scale-[1.01] hover:opacity-95 active:scale-[0.99] glow-primary cursor-pointer"
             >
               {/* Button light hover glow overlay */}
               <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               Get Lifetime Access Now
-            </a>
+            </button>
           </div>
 
           {/* Guarantee Subtext */}
@@ -605,6 +634,94 @@ export function Pricing() {
           </p>
         </motion.div>
       </div>
+
+      {/* Desktop QR Modal */}
+      <AnimatePresence>
+        {showDesktopModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowDesktopModal(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              className="relative w-full max-w-[340px] overflow-hidden rounded-2xl border border-white/10 bg-[#13151a]/95 p-6 shadow-2xl backdrop-blur-xl z-10"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setShowDesktopModal(false)}
+                className="absolute right-4 top-4 rounded-lg p-1.5 text-muted-foreground/80 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <div className="text-center">
+                {/* Header */}
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary mb-3">
+                  <Sparkles className="h-4.5 w-4.5" />
+                </div>
+                <h3 className="text-[16px] font-semibold text-white tracking-tight">
+                  Pay with UPI
+                </h3>
+                <p className="mt-1 text-[12px] text-muted-foreground leading-normal px-2">
+                  Scan the QR code with GPay, PhonePe, Paytm, or your UPI app.
+                </p>
+
+                {/* QR Code Container */}
+                <div className="relative mt-5 mx-auto flex h-[200px] w-[200px] items-center justify-center rounded-xl border border-white/8 bg-white p-2.5 shadow-md">
+                  <img
+                    src={qrCodeUrl}
+                    alt="UPI Payment QR Code"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+
+                {/* Price Badge */}
+                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-0.5 text-[12px] font-medium text-white border border-white/5">
+                  Amount to Pay: <span className="font-semibold text-primary">₹99</span>
+                </div>
+
+                {/* Divider */}
+                <div className="my-4.5 flex items-center justify-center gap-3">
+                  <div className="h-px w-full bg-white/5" />
+                  <span className="text-[9.5px] font-semibold text-muted-foreground/50 uppercase tracking-widest">or</span>
+                  <div className="h-px w-full bg-white/5" />
+                </div>
+
+                {/* Copy UPI ID */}
+                <div className="flex flex-col gap-1.5 text-left">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">UPI Address</span>
+                  <div className="flex items-center justify-between gap-2 rounded-xl border border-white/8 bg-white/[0.01] p-2">
+                    <code className="text-[12px] font-mono text-foreground/90 pl-1">{upiId}</code>
+                    <button
+                      onClick={handleCopy}
+                      className="inline-flex items-center justify-center rounded-lg bg-white/5 p-1.5 text-muted-foreground/80 hover:text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+                      title="Copy UPI Address"
+                    >
+                      {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Help note */}
+                <p className="mt-4 text-[10.5px] text-muted-foreground/45 leading-normal">
+                  Once payment is complete, the extension license is instantly activated.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
