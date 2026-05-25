@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Search, Target, Sparkles, Code2, CheckCircle2, Download, ExternalLink } from "lucide-react";
+import { Search, Target, Sparkles, Code2, CheckCircle2, Download, ExternalLink, Github, Twitter, Heart, Send } from "lucide-react";
 import { IDEMockup } from "./IDEMockup";
 import { Logo } from "./Logo";
 import bannerImg from "./banner.png";
@@ -259,18 +259,103 @@ export function CTA() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 text-[12.5px] text-muted-foreground">
-        <div className="flex items-center gap-2.5">
-          <Logo className="h-5 w-5" />
-          <span className="font-medium text-foreground/90">Indexer</span>
-          <span>© 2026. All rights reserved.</span>
+    <footer className="relative border-t border-white/5 bg-black/20 pt-20 pb-10 overflow-hidden">
+      {/* Immersive Atmospheric Bottom Glow */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-full max-w-[800px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_bottom,oklch(0.55_0.24_280/0.15),transparent_70%)] blur-3xl" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-16 pb-16">
+          {/* Brand Info */}
+          <div className="flex flex-col gap-5 md:col-span-2">
+            <a href="#" className="flex items-center gap-2.5 w-fit">
+              <Logo className="h-6 w-6" />
+              <span className="text-[17px] font-semibold tracking-tight text-white">Indexer</span>
+            </a>
+            <p className="max-w-sm text-[13.5px] leading-relaxed text-muted-foreground">
+              Empowering developers to optimize their codebase and content for the age of AI search. Built natively for modern agentic workflows.
+            </p>
+            <div className="flex items-center gap-3 mt-2">
+              <a 
+                href="https://github.com/NitroNitish/Indexer-s-Website" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/15 hover:bg-white/[0.05] hover:text-white transition-all text-muted-foreground" 
+                title="GitHub"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/15 hover:bg-white/[0.05] hover:text-white transition-all text-muted-foreground" 
+                title="Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Links Column 1 */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">Product</h4>
+            <ul className="flex flex-col gap-2.5 text-[13.5px]">
+              {[
+                { label: "Features", href: "#features" },
+                { label: "How It Works", href: "#how" },
+                { label: "Install Extension", href: "https://open-vsx.org/extension/indexer-app/indexer" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a 
+                    href={item.href} 
+                    {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="text-muted-foreground hover:text-white hover:translate-x-0.5 transition-all inline-flex items-center gap-1 group"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter Column */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-[11px] uppercase tracking-[0.18em] font-semibold text-foreground/80">Newsletter</h4>
+            <p className="text-[13px] text-muted-foreground leading-normal">
+              Stay updated on AI SEO optimizations and extension releases.
+            </p>
+            <form onSubmit={(e) => e.preventDefault()} className="relative mt-1 flex items-center">
+              <input
+                type="email"
+                placeholder="Enter email address"
+                className="w-full rounded-xl border border-white/8 bg-white/[0.02] px-4 py-2.5 pr-11 text-[13px] text-white placeholder-muted-foreground/60 backdrop-blur-md outline-none transition-all focus:border-primary/45 focus:bg-white/[0.05]"
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                className="absolute right-1.5 p-1.5 rounded-lg bg-[image:var(--gradient-primary)] text-white hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_12px_-4px_oklch(0.66_0.21_280/0.7)]"
+              >
+                <Send className="h-3.5 w-3.5" />
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="flex items-center gap-6">
-          <a href="#features" className="hover:text-foreground">Features</a>
-          <a href="#how" className="hover:text-foreground">How it works</a>
-          <a href="#docs" className="hover:text-foreground">Docs</a>
-          <a href="#pricing" className="hover:text-foreground">Pricing</a>
+
+        {/* Bottom footer bar */}
+        <div className="flex flex-wrap items-center justify-between gap-6 border-t border-white/5 pt-8 text-[12.5px] text-muted-foreground">
+          <div className="flex items-center gap-1">
+            <span>© 2026 Indexer. All rights reserved.</span>
+          </div>
+          
+          <div className="flex items-center gap-1.5 text-[12px] bg-white/[0.02] border border-white/5 px-3 py-1.5 rounded-full">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse mr-0.5" />
+            <span>Systems fully operational</span>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <span>Built for the AI Web with</span>
+            <Heart className="h-3.5 w-3.5 text-primary fill-primary mx-0.5" />
+          </div>
         </div>
       </div>
     </footer>
