@@ -32,11 +32,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: EASE }}
           className="relative z-10"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[12px] text-muted-foreground backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_oklch(0.66_0.21_280)]" />
-            Built for Discoverability
-          </div>
-          <h1 className="mt-6 text-[clamp(2.6rem,5.6vw,4.4rem)] font-semibold leading-[1.02] tracking-tight">
+          <h1 className="text-[clamp(2.6rem,5.6vw,4.4rem)] font-semibold leading-[1.02] tracking-tight">
             Optimize for{" "}
             <span className="text-gradient">AI Search</span>
           </h1>
@@ -44,17 +40,17 @@ export function Hero() {
             Indexer analyzes your codebase and generates AI-ready optimizations directly inside Antigravity IDE.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <MagneticButton primary>
+            <MagneticButton primary href="https://open-vsx.org/extension/indexer-app/indexer">
               <Download className="h-4 w-4" /> Install Extension
             </MagneticButton>
-            <MagneticButton>
+            <MagneticButton href="vscode:extension/indexer-app.indexer">
               Open in Antigravity <ExternalLink className="h-3.5 w-3.5" />
             </MagneticButton>
           </div>
           <div className="mt-10 flex flex-col gap-1.5">
             <p className="text-[13px]">
-              <span className="font-semibold text-foreground">12,847+</span>{" "}
-              <span className="text-muted-foreground">developers are already using Indexer</span>
+              <span className="font-semibold text-foreground">156</span>{" "}
+              <span className="text-muted-foreground">total downloads of this extension</span>
             </p>
             <div className="flex items-center gap-2 text-[12.5px] text-muted-foreground">
               <div className="flex gap-0.5 text-primary">
@@ -88,11 +84,13 @@ export function Hero() {
 function MagneticButton({
   children,
   primary,
+  href,
 }: {
   children: React.ReactNode;
   primary?: boolean;
+  href?: string;
 }) {
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<any>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 250, damping: 18 });
@@ -106,17 +104,34 @@ function MagneticButton({
   };
   const reset = () => { x.set(0); y.set(0); };
 
+  const className = primary
+    ? "inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-5 py-3 text-[14px] font-medium text-white shadow-[0_20px_50px_-20px_oklch(0.66_0.21_280/0.8)]"
+    : "inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-[14px] font-medium text-foreground/90 backdrop-blur hover:bg-white/[0.06]";
+
+  if (href) {
+    const isExternal = href.startsWith("http");
+    return (
+      <motion.a
+        ref={ref}
+        href={href}
+        onPointerMove={onMove}
+        onPointerLeave={reset}
+        style={{ x: sx, y: sy }}
+        className={className}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+
   return (
     <motion.button
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={reset}
       style={{ x: sx, y: sy }}
-      className={
-        primary
-          ? "inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-5 py-3 text-[14px] font-medium text-white shadow-[0_20px_50px_-20px_oklch(0.66_0.21_280/0.8)]"
-          : "inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-[14px] font-medium text-foreground/90 backdrop-blur hover:bg-white/[0.06]"
-      }
+      className={className}
     >
       {children}
     </motion.button>

@@ -229,7 +229,7 @@ export function CTA() {
           <div className="absolute inset-0">
             {/* Install Extension Hotspot */}
             <a
-              href="https://github.com/NitroNitish/luminous-plane"
+              href="https://open-vsx.org/extension/indexer-app/indexer"
               target="_blank"
               rel="noopener noreferrer"
               title="Install Extension"
@@ -244,9 +244,7 @@ export function CTA() {
 
             {/* Open in Antigravity Hotspot */}
             <a
-              href="https://github.com/NitroNitish/luminous-plane"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="vscode:extension/indexer-app.indexer"
               title="Open in Antigravity"
               className="absolute cursor-pointer rounded-[6px] md:rounded-xl transition-all hover:bg-white/5"
               style={{
