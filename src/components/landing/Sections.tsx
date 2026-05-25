@@ -14,23 +14,7 @@ const fadeUp = {
 };
 
 export function Logos() {
-  const items = ["Vercel", "Linear", "Supabase", "Tailwind", "Clerk", "Acme"];
-  return (
-    <section className="border-y border-white/5 py-12">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-8 text-center text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-          Trusted by developers at
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70">
-          {items.map((n) => (
-            <span key={n} className="text-[18px] font-semibold tracking-tight text-foreground/70">
-              {n}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return null;
 }
 
 const features = [
@@ -162,9 +146,21 @@ export function NativeShowcase() {
 }
 
 const testimonials = [
-  { q: "Indexer helped us optimize our docs and site for AI search. We're now discoverable in ChatGPT and Perplexity.", a: "Alex R.", r: "Developer Relations @ Vercel" },
-  { q: "A must-have for every modern dev team. The recommendations are spot on and super easy to implement.", a: "Sarah K.", r: "Engineering Lead @ Linear" },
-  { q: "Finally, an extension that understands AI search. Clean, fast and incredibly useful.", a: "Thomas D.", r: "Founder @ ShipFast" },
+  {
+    q: "bro honestly this extension is a lifesaver. i was struggling so much to get my site ranked and cited on perplexity and chatgpt, but indexer literally pointed out exactly what was missing in my html and sitemap. highly recommend!",
+    a: "Rohan Mehta",
+    r: "Self-taught Developer"
+  },
+  {
+    q: "tbh i just build things for the vibe, but having my projects show up correctly when people search on AI tools is so sick. this tool runs super fast in the IDE, one click and boom, everything is optimized.",
+    a: "Aditya Rao",
+    r: "Vibe Coder"
+  },
+  {
+    q: "Building a product in 2026 without AI discoverability is a waste of time. Indexer is now a core part of our dev workflow. Super clean UI and the recommendations are spot on.",
+    a: "Neha Gupta",
+    r: "Techy Founder"
+  },
 ];
 
 export function Testimonials() {

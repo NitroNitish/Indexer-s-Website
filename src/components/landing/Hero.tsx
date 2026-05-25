@@ -58,7 +58,7 @@ export function Hero() {
                   <Star key={i} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
-              4.9 out of 5 from 386 reviews
+              4.9 out of 5 rating
             </div>
           </div>
         </motion.div>
