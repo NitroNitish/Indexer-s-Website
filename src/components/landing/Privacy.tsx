@@ -173,10 +173,10 @@ export function PrivacyPage() {
                 Questions, feedback, or ideas?
               </p>
               <a
-                href="mailto:support@indexer.dev"
+                href="mailto:nitishchaurasia329@gmail.com"
                 className="inline-block text-[15px] font-mono font-medium text-primary hover:underline hover:opacity-90"
               >
-                support@indexer.dev
+                nitishchaurasia329@gmail.com
               </a>
             </section>
           </div>

@@ -506,7 +506,7 @@ export function Footer() {
 export function Pricing() {
   const [showDesktopModal, setShowDesktopModal] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [amount, setAmount] = useState("99");
+  const [amount, setAmount] = useState("49");
   const [activePill, setActivePill] = useState<"1" | "2" | "custom">("1");
   const [customVal, setCustomVal] = useState("");
 
@@ -521,11 +521,11 @@ export function Pricing() {
   const handlePillClick = (pill: "1" | "2" | "custom") => {
     setActivePill(pill);
     if (pill === "1") {
-      setAmount("99");
+      setAmount("49");
     } else if (pill === "2") {
-      setAmount("198");
+      setAmount("98");
     } else {
-      setAmount(customVal || "99");
+      setAmount(customVal || "49");
     }
   };
 
@@ -600,7 +600,7 @@ export function Pricing() {
                   : "bg-white/[0.01] border-white/5 text-muted-foreground hover:bg-white/5 hover:text-white"
               }`}
             >
-              ☕ 1 Coffee (₹99)
+              ☕ 1 Coffee (₹49)
             </button>
             <button
               onClick={() => handlePillClick("2")}
@@ -610,7 +610,7 @@ export function Pricing() {
                   : "bg-white/[0.01] border-white/5 text-muted-foreground hover:bg-white/5 hover:text-white"
               }`}
             >
-              ☕☕ 2 (₹198)
+              ☕☕ 2 (₹98)
             </button>
             <button
               onClick={() => handlePillClick("custom")}
