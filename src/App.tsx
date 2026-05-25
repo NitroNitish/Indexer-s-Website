@@ -1,6 +1,7 @@
 import { AmbientBackground } from "@/components/landing/Background";
 import { Nav } from "@/components/landing/Nav";
 import { Hero } from "@/components/landing/Hero";
+import { Analytics } from "@vercel/analytics/react";
 import {
   Logos,
   Features,
@@ -26,6 +27,7 @@ export default function App() {
       <FAQ />
       <CTA />
       <Footer />
+      <Analytics />
     </main>
   );
 }
