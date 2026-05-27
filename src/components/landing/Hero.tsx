@@ -86,7 +86,7 @@ export function Hero() {
               </div>
               <div className="flex flex-col leading-snug">
                 <div className="text-[14.5px] font-medium tracking-tight">
-                  <span className="font-semibold text-primary">180+</span>{" "}
+                  <span className="font-semibold text-primary">250+</span>{" "}
                   <span className="text-foreground/90">developers</span>
                 </div>
                 <div className="text-[13px] text-muted-foreground">
