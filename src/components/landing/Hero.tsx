@@ -1,11 +1,29 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Download, ExternalLink, Star } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { IDEMockup } from "./IDEMockup";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export function Hero() {
+  const [devCount, setDevCount] = useState(250);
+
+  useEffect(() => {
+    fetch("https://open-vsx.org/api/indexer-app/indexer")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch");
+        return res.json();
+      })
+      .then((data) => {
+        if (typeof data.downloadCount === "number") {
+          setDevCount(Math.max(data.downloadCount, 250));
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching developer count:", err);
+      });
+  }, []);
+
   const ref = useRef<HTMLDivElement>(null);
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);
@@ -86,7 +104,7 @@ export function Hero() {
               </div>
               <div className="flex flex-col leading-snug">
                 <div className="text-[14.5px] font-medium tracking-tight">
-                  <span className="font-semibold text-primary">250+</span>{" "}
+                  <span className="font-semibold text-primary">{devCount}+</span>{" "}
                   <span className="text-foreground/90">developers</span>
                 </div>
                 <div className="text-[13px] text-muted-foreground">
